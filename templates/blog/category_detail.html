@@ -1,0 +1,10 @@
+<h1>{{category.title}}</h1>
+<div>
+	{{category.description}}
+</div>
+<h2>Post in questa categoria</h2>
+{% for post in posts %}
+	<a href="{{post.get_absolute_url}}">{{post.title}}</a>
+{% endfor %}
+
+<a href="{% url 'blog_category_list' %}">Torna alla lista</a>

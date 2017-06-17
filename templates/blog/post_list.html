@@ -1,0 +1,12 @@
+<h1>Lista dei Post:</h1>
+{% if post_list %}
+	<ul>
+		{% for post in post_list %}
+			<li>
+				<a href="{{post.get_absolute_url}}">{{post.title}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+<a href="{% url 'blog_category_list' %}">Vali alla lista delle categorie</a>
+
