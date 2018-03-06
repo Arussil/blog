@@ -5,7 +5,7 @@ from .models import Post, Category
 
 def getPosts(request):
     posts = Post.objects.order_by('-creation_date')
-    context = {'post_list': posts}
+    context = {'posts': posts}
     return render(request, 'blog/post_list.html', context)
 
 def getPost(request, slug):
