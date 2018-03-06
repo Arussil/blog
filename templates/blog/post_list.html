@@ -1,12 +1,14 @@
-<h1>Lista dei Post:</h1>
-{% if post_list %}
-	<ul>
-		{% for post in post_list %}
-			<li>
-				<a href="{{post.get_absolute_url}}">{{post.title}}</a>
-			</li>
-		{% endfor %}
-	</ul>
-{% endif %}
-<a href="{% url 'blog_category_list' %}">Vali alla lista delle categorie</a>
-
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    {% if posts %}
+      {% for post in posts %}
+          <div class="post-preview">
+            <a href="{{post.get_absolute_url}}"><h2>{{post.title}}</h2></a>
+            <p class="post-meta">Postato da {{post.get_author}} il {{post.creation_date}}</p>
+            <p>{{post.body|safe|truncatewords_html:30}}</p>
+            <a href="{{post.get_absolute_url}}"><h5>Continua a leggere</h5></a>
+          </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
